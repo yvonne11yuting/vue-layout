@@ -1,15 +1,9 @@
-<script setup>
-import IconBars from '@/components/icons/IconBars.vue';
-import HeaderSearch from '@/components/HeaderSearch.vue';
-import HeaderAreaInfo from '@/components/HeaderAreaInfo.vue';
-import HeaderControl from '@/components/HeaderControl.vue';
-import NavbarList from '@/components/NavbarList.vue';
-</script>
-
 <template>
   <header>
         <div class="header-sub flex-center">
-            <IconBars />
+            <button @click="extendSidebar">
+                <IconBars />
+            </button>
             <img alt="APPX logo" class="logo" src="./assets/logo.png" width="164" height="35" />
             <HeaderSearch />
         </div>
@@ -29,6 +23,19 @@ import NavbarList from '@/components/NavbarList.vue';
   </main>
 </template>
 
+<script setup>
+import { ref } from 'vue';
+import IconBars from '@/components/icons/IconBars.vue';
+import HeaderSearch from '@/components/HeaderSearch.vue';
+import HeaderAreaInfo from '@/components/HeaderAreaInfo.vue';
+import HeaderControl from '@/components/HeaderControl.vue';
+import NavbarList from '@/components/NavbarList.vue';
+
+const extendSidebar = () => {
+
+}
+</script>
+
 <style scoped>
     header {
         display: flex;
@@ -43,7 +50,7 @@ import NavbarList from '@/components/NavbarList.vue';
 
     main {
         display: grid;
-        grid-template-columns: minmax(100px, 280px) 1fr;
+        grid-template-columns: minmax(100px, 278px) 1fr;
         grid-template-rows: 60px 124px minmax(100px, auto);
         grid-template-areas:
             "nav breadcrumb"

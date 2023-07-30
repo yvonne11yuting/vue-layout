@@ -1,26 +1,27 @@
 <template>
     <li>
-        <div :class="{ hasSub: hasSub }" @click="handleToggle">
+        <div :class="{ hasSub: hasSub && isShowSub }" class="sub-item" @click="handleShowSub">
             {{ title }}
             <IconArrowDown v-if="hasSub" />
         </div>
-        <slot />
+        <slot :showSub="showSub" />
     </li>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
 import IconArrowDown from '@/components/icons/IconArrowDown.vue';
-defineProps<{
+const props = defineProps<{
   title: string,
   hasSub?: boolean,
+  isShowSub?: boolean
 }>()
+const showSub = ref(false);
 
-const emit = defineEmits<{
-  (e: 'toggle'): void
-}>()
-
-function handleToggle () {
-    emit('toggle');
+const handleShowSub = () => {
+    if (props.hasSub) {
+        showSub.value = !showSub.value;
+    }
 }
 
 </script>
@@ -34,7 +35,7 @@ function handleToggle () {
         margin-bottom: .75rem;
     }
 
-    .hasSub svg {
+    .sub-item svg {
         padding-left: .5rem;
     }
 </style>
