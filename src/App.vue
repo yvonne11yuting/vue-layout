@@ -1,8 +1,9 @@
 <script setup>
 import IconBars from '@/components/icons/IconBars.vue';
-import HeaderSearch from '@/components/HeaderSearch.vue'
-import HeaderAreaInfo from '@/components/HeaderAreaInfo.vue'
-import HeaderControl from '@/components/HeaderControl.vue'
+import HeaderSearch from '@/components/HeaderSearch.vue';
+import HeaderAreaInfo from '@/components/HeaderAreaInfo.vue';
+import HeaderControl from '@/components/HeaderControl.vue';
+import NavbarList from '@/components/NavbarList.vue';
 </script>
 
 <template>
@@ -19,7 +20,9 @@ import HeaderControl from '@/components/HeaderControl.vue'
   </header>
 
   <main>
-    <nav class="navbar">nav</nav>
+    <nav class="navbar">
+        <NavbarList />
+    </nav>
     <div class="breadcrumb">breadcrumb</div>
     <div class="collection-filter">collection-filter</div>
     <div class="collection-list">collection-list</div>
@@ -40,7 +43,7 @@ import HeaderControl from '@/components/HeaderControl.vue'
 
     main {
         display: grid;
-        grid-template-columns: minmax(100px, max-content) 1fr;
+        grid-template-columns: minmax(100px, 280px) 1fr;
         grid-template-rows: 60px 124px minmax(100px, auto);
         grid-template-areas:
             "nav breadcrumb"

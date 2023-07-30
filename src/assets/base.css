@@ -160,3 +160,8 @@ select[multiple]
 	/* Move the label to the top */
 	vertical-align:top;
 }
+
+ul {
+    padding: 0;
+    margin: 0;
+}
