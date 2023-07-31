@@ -7,11 +7,11 @@
             :open="open"
         >
             <template v-slot="slotL2">
-                <ul v-if="item.sub && slotL2.showSub" class="sub-list">
+                <ul v-if="item.sub && slotL2.showSub && open" class="sub-list">
                     <NavbarSubItem v-for="level2 in item.sub"
                         :key="level2.id"
                         :title="level2.title"
-                        :open="false"
+                        :hasSub="!!level2.sub"
                     >
                         <template v-slot="slotL3">
                             <template v-for="level3 in level2.sub">
