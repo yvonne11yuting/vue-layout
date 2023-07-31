@@ -3,9 +3,9 @@
         <h3>My Collection</h3>
         <Pagination :total="480" :current="1" :each="10" />
     </div>
-    <div v-for="item in data" :key="item.id" class="card">
+    <div v-for="item in data" :key="item.id" class="card" @click="$emit('unCollect', item.id)">
         <div class="collect"><IconCollect /></div>
-        <div class="title">{{ item.title }}</div>
+        <div class="title">{{ item.title }}{{ item.id.slice(0,3) }}</div>
         <div class="news"><span v-if="item.isNews">News</span></div>
         <div class="toolbar flex-start">
             <div class="flex-center">
@@ -44,6 +44,8 @@
     defineProps<{
         data: ListData[],
     }>()
+
+    defineEmits(['unCollect'])
 </script>
 
 <style scoped>
@@ -71,10 +73,12 @@
 
     .collect {
         grid-area: collect;
+        cursor: pointer;
     }
 
     .title {
         grid-area: title;
+        cursor: pointer;
     }
     .toolbar {
         grid-area: toolbar;
@@ -85,6 +89,7 @@
 
     .toolbar > div {
         gap: .25rem;
+        cursor: pointer;
     }
 
     .date {

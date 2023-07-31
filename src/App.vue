@@ -24,7 +24,7 @@
         <CollectionFilter />
     </div>
     <div class="collection-list">
-        <CollectionList :data="CollectionListData"/>
+        <CollectionList :data="listData" @un-collect="unCollect"/>
     </div>
   </main>
 </template>
@@ -41,11 +41,14 @@ import CollectionFilter from '@/components/CollectionFilter.vue';
 import CollectionList from '@/components/CollectionList.vue';
 import { BreadcrumbData, CollectionListData } from './constants.ts';
 const navbarFlag = ref(false);
+const listData = ref(CollectionListData);
 
 const extendNavbar = () => {
     navbarFlag.value = !navbarFlag.value
 }
-console.log(navbarFlag.value);
+const unCollect = (targetId) => {
+    listData.value = listData.value.filter(({ id }) => id !== targetId)
+}
 </script>
 
 <style scoped>
