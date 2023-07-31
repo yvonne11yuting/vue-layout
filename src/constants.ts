@@ -64,3 +64,10 @@ export const NAV_ITEMS_DATA: NavItemsData[] = [{
     title: 'HR Development & Organization Setup',
     icon: IconUsers
 }];
+
+export const BreadcrumbData = [{
+    title: 'Home',
+    path: '/'
+}, {
+    title: 'My Collection'
+}];

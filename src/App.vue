@@ -17,7 +17,9 @@
     <nav class="navbar">
         <NavbarList :open="navbarFlag"/>
     </nav>
-    <div class="breadcrumb">breadcrumb</div>
+    <div class="breadcrumb">
+        <MainBreadcrumb :data="BreadcrumbData"/>
+    </div>
     <div class="collection-filter">collection-filter</div>
     <div class="collection-list">collection-list</div>
   </main>
@@ -30,7 +32,8 @@ import HeaderSearch from '@/components/HeaderSearch.vue';
 import HeaderAreaInfo from '@/components/HeaderAreaInfo.vue';
 import HeaderControl from '@/components/HeaderControl.vue';
 import NavbarList from '@/components/NavbarList.vue';
-
+import MainBreadcrumb from '@/components/MainBreadcrumb.vue';
+import { BreadcrumbData } from './constants.ts';
 const navbarFlag = ref(false);
 
 const extendNavbar = () => {
@@ -59,6 +62,7 @@ console.log(navbarFlag.value);
             "nav breadcrumb"
             "nav collection-filter"
             "nav collection-list";
+        column-gap: 1rem;
     }
 
     .navbar {
@@ -67,6 +71,7 @@ console.log(navbarFlag.value);
 
     .breadcrumb {
         grid-area: breadcrumb;
+        padding: 1rem 0;
     }
 
     .collection-filter {

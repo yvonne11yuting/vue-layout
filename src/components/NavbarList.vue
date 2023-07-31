@@ -1,6 +1,6 @@
 <template>
     <ul>
-        <NavbarItem v-for="item in items"
+        <NavbarItem v-for="item in NAV_ITEMS_DATA"
             :key="item.id"
             :title="item.title"
             :icon="item.icon"
@@ -29,7 +29,6 @@
 </template>
 
 <script setup lang="ts">
-    import { shallowRef } from 'vue';
     import { NAV_ITEMS_DATA } from '@/constants';
     import NavbarItem from './NavbarItem.vue'
     import NavbarSubItem from './NavbarSubItem.vue'
@@ -37,8 +36,6 @@
     defineProps<{
         open: boolean
     }>()
-
-    const items = shallowRef(NAV_ITEMS_DATA)
 </script>
 
 <style scoped>
