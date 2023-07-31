@@ -1,7 +1,7 @@
 <template>
     <li class="flex-start nav-level1">
         <div class="flex-start nav-level1-item" @click="showSub = !showSub">
-            <component :is="icon" />
+            <component :is="icon" @click="!open && $emit('expandNavbar')" />
             <strong v-if="open">{{ title }}</strong>
             <span  v-if="open" class="arrow-down">
                 <IconArrowDown />
@@ -20,6 +20,8 @@
         icon: Component,
         open: boolean
     }>()
+
+    defineEmits(['expandNavbar'])
 
     const showSub = ref(false);
 </script>

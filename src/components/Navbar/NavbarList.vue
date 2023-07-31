@@ -5,6 +5,7 @@
             :title="item.title"
             :icon="item.icon"
             :open="open"
+            @expand-navbar="expandNavbar"
         >
             <template v-slot="slotL2">
                 <ul v-if="item.sub && slotL2.showSub && open" class="sub-list">
@@ -37,6 +38,12 @@
         open: boolean,
         isDesktop: boolean
     }>()
+
+    const emit = defineEmits(['expandNavbar'])
+
+    const expandNavbar = () => {
+        emit('expandNavbar')
+    }
 </script>
 
 <style scoped>

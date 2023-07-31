@@ -1,7 +1,7 @@
 <template>
   <header>
         <div class="header-sub flex-center">
-            <button @click="extendNavbar">
+            <button @click="expandNavbar">
                 <IconBars />
             </button>
             <img alt="APPX logo" class="logo" src="./assets/logo.png" width="164" height="35" />
@@ -15,7 +15,7 @@
 
   <main>
     <nav class="navbar" :class="{ isDesktop: isDesktop, navOpen: navbarFlag }">
-        <NavbarList :open="navbarFlag" :isDesktop="isDesktop" />
+        <NavbarList :open="navbarFlag" :isDesktop="isDesktop" @expand-navbar="expandNavbar"/>
     </nav>
     <div class="breadcrumb">
         <MainBreadcrumb :data="BreadcrumbData"/>
@@ -49,7 +49,7 @@ const listData = ref(CollectionListData);
 const isMobile = ref(false);
 const isDesktop = computed(() => !isMobile.value);
 
-const extendNavbar = () => {
+const expandNavbar = () => {
     navbarFlag.value = !navbarFlag.value
 }
 const unCollect = (targetId) => {
