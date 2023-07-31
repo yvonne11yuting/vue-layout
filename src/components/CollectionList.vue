@@ -1,7 +1,7 @@
 <template>
     <div v-if="isDesktop" class="list-header flex-center">
         <h3>My Collection</h3>
-        <Pagination :total="480" :current="1" :each="10" />
+        <CollectionPagination :total="480" :current="1" :each="10" />
     </div>
     <h3 v-else>My Collection</h3>
     <template v-for="item in data" :key="item.id">
@@ -33,7 +33,7 @@
     import IconThumb from '@/components/icons/IconThumb.vue';
     import IconComment from '@/components/icons/IconComment.vue';
     import IconShare from '@/components/icons/IconShare.vue';
-    import Pagination from './Pagination.vue';
+    import CollectionPagination from './CollectionPagination.vue';
     interface ListData {
         id: string;
         title: string;

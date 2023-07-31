@@ -14,11 +14,14 @@
   </header>
 
   <main>
-    <nav class="navbar">
+    <nav class="navbar" :class="{ isDesktop: isDesktop, navOpen: navbarFlag }">
         <NavbarList :open="navbarFlag" :isDesktop="isDesktop"/>
     </nav>
     <div class="breadcrumb">
         <MainBreadcrumb :data="BreadcrumbData"/>
+    </div>
+    <div class="mobile-search">
+        <MobileSearch />
     </div>
     <div class="collection-filter">
         <CollectionFilter />
@@ -39,6 +42,7 @@ import NavbarList from '@/components/NavbarList.vue';
 import MainBreadcrumb from '@/components/MainBreadcrumb.vue';
 import CollectionFilter from '@/components/CollectionFilter.vue';
 import CollectionList from '@/components/CollectionList.vue';
+import MobileSearch from '@/components/MobileSearch.vue';
 import { BreadcrumbData, CollectionListData } from './constants.ts';
 const navbarFlag = ref(false);
 const listData = ref(CollectionListData);
@@ -104,6 +108,11 @@ onMounted(() => {
         grid-area: collection-list;
     }
 
+    .mobile-search {
+        grid-area: mobile-search;
+        display: none;
+    }
+
     @media (max-width: 1200px) {
         header {
             background-color: #fff;
@@ -126,6 +135,7 @@ onMounted(() => {
             grid-template-rows: auto;
             grid-template-areas:
                 "breadcrumb"
+                "mobile-search"
                 "collection-filter"
                 "collection-list";
             row-gap: 1rem;
@@ -137,9 +147,21 @@ onMounted(() => {
             background-color: #fff;
         }
 
+        .navbar.isDesktop.navOpen {
+            visibility: visible;
+        }
+
+        .navbar.isDesktop {
+            visibility: hidden;
+        }
+
         .collection-list {
             padding: 1rem;
             background: #fff;
+        }
+
+        .mobile-search {
+            display: block;
         }
     }
 </style>

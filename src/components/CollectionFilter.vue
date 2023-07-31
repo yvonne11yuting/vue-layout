@@ -71,7 +71,7 @@ const search = ref('');
             gap: 1.5rem;
         }
 
-        .form-group, .form-content, button, select {
+        .form-group, .form-content, button, select, input {
             width: 100%;
         }
 

@@ -57,4 +57,10 @@
         padding-bottom: 1px;
         cursor: pointer;
     }
+
+    @media (max-width: 1200px) {
+        .header-search {
+            visibility: hidden;
+        }
+    }
 </style>

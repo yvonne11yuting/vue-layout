@@ -2,10 +2,10 @@
     <li class="flex-start nav-level1">
         <div class="flex-start nav-level1-item" @click="showSub = !showSub">
             <component :is="icon" />
-                <strong v-if="open">{{ title }}</strong>
-                <span  v-if="open" class="arrow-down">
-                    <IconArrowDown />
-                </span>
+            <strong v-if="open">{{ title }}</strong>
+            <span  v-if="open" class="arrow-down">
+                <IconArrowDown />
+            </span>
         </div>
         <slot :showSub="showSub" />
     </li>
