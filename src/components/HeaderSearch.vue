@@ -1,12 +1,12 @@
 <template>
     <div class="header-search">
-        <div class="search-wrapper">
+        <div class="form-content">
             <input type="text" v-model="search" placeholder="Search here..."/>
             <span class="search">
                 <IconSearch />
             </span>
         </div>
-        <div class="search-wrapper">
+        <div class="form-content">
             <select v-model="scope" name="condition" id="condition">
                 <option value="all">By All</option>
                 <option value="station">By Station</option>
@@ -34,26 +34,18 @@
         gap: 6px;
     }
 
-    .search-wrapper {
-        display: flex;
-        align-items: center;
-        background: #fff;
-        border-radius: 6px;
-        border: 1px solid var(--text-tertiary);
-    }
-
-    .search-wrapper .search {
-        padding-top: 4px;
+    .form-content .search {
+        padding-top: .25rem;
         border-left: 1px solid #000;
         cursor: pointer;
     }
 
-    .search-wrapper span {
-        padding: 0 12px 0 8px;
+    .form-content span {
+        padding: 0 .75rem 0 .5rem;
     }
 
     input, select {
-        padding: 12px 16px;
+        padding: .75rem 1rem;
         color: var(--text-tertiary);
     }
 
@@ -61,7 +53,7 @@
         appearance:none;
     }
 
-    .search-wrapper .arrow {
+    .form-content .arrow {
         padding-bottom: 1px;
         cursor: pointer;
     }
