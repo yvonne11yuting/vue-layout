@@ -3,3 +3,6 @@
         <path d="M6.99426 1L1.99426 6L6.99426 11" stroke="#151D48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
 </template>
+
+<script setup lang="ts">
+</script>

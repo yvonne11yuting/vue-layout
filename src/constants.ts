@@ -1,3 +1,4 @@
+import type { Component } from 'vue'
 import { v4 as uuidv4 } from 'uuid';
 import IconHome from '@/components/icons/IconHome.vue';
 import IconCart from '@/components/icons/IconCart.vue';
@@ -15,8 +16,8 @@ interface SubInfo {
 interface NavItemsData {
     id: string;
     title: string;
-    icon: ObjectConstructor
-    sub?: SubInfo[]
+    icon: Component;
+    sub?: SubInfo[];
 }
 
 export const NAV_ITEMS_DATA: NavItemsData[] = [{
@@ -81,4 +82,3 @@ export const CollectionListData = [...Array(6)].map(() => ({
     date: 1671408000000,
     isNews: true
 }));
-

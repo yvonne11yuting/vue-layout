@@ -12,12 +12,12 @@
 </template>
 
 <script setup lang="ts">
-    import { ref } from 'vue';
+    import { ref, type Component } from 'vue';
     import IconArrowDown from '@/components/icons/IconArrowDown.vue';
 
     defineProps<{
         title: string,
-        icon: ObjectConstructor,
+        icon: Component,
         open: boolean
     }>()
 
