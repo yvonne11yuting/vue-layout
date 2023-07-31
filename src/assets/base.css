@@ -6,14 +6,6 @@
     --sidebar-l2: #565867;
 }
 
-/* *,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  font-weight: normal;
-} */
-
 html {
     font-size: 16px;
 }
