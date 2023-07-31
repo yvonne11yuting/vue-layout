@@ -23,7 +23,9 @@
     <div class="collection-filter">
         <CollectionFilter />
     </div>
-    <div class="collection-list">collection-list</div>
+    <div class="collection-list">
+        <CollectionList :data="CollectionListData"/>
+    </div>
   </main>
 </template>
 
@@ -36,7 +38,8 @@ import HeaderControl from '@/components/HeaderControl.vue';
 import NavbarList from '@/components/NavbarList.vue';
 import MainBreadcrumb from '@/components/MainBreadcrumb.vue';
 import CollectionFilter from '@/components/CollectionFilter.vue';
-import { BreadcrumbData } from './constants.ts';
+import CollectionList from '@/components/CollectionList.vue';
+import { BreadcrumbData, CollectionListData } from './constants.ts';
 const navbarFlag = ref(false);
 
 const extendNavbar = () => {

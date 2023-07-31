@@ -5,6 +5,8 @@
             <div class="form-content">
                 <select v-model="category" name="category" id="category">
                     <option value="hr">HR Announcement</option>
+                    <option value="news">News</option>
+                    <option value="all">All</option>
                 </select>
                 <span class="arrow">
                     <IconArrowDown />

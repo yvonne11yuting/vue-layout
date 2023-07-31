@@ -71,3 +71,14 @@ export const BreadcrumbData = [{
 }, {
     title: 'My Collection'
 }];
+
+export const CollectionListData = [...Array(6)].map(() => ({
+    id: uuidv4(),
+    title: 'APPX System New Version Release Announce on 14th Dec...',
+    likes: 150,
+    comments: 10,
+    shares: 5,
+    date: 1671408000000,
+    isNews: true
+}));
+
