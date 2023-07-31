@@ -11,6 +11,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import IconArrowDown from '@/components/icons/IconArrowDown.vue';
+
 const props = defineProps<{
   title: string,
   hasSub?: boolean,

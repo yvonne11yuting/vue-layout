@@ -4,14 +4,14 @@
             :key="item.id"
             :title="item.title"
             :icon="item.icon"
-            :hasSub="!!item.sub"
+            :open="open"
         >
             <template v-slot="slotL2">
-                <ul v-if="item.sub && slotL2.showSub">
+                <ul v-if="item.sub && slotL2.showSub" class="sub-list">
                     <NavbarSubItem v-for="level2 in item.sub"
                         :key="level2.id"
                         :title="level2.title"
-                        :hasSub="!!level2.sub"
+                        :open="false"
                     >
                         <template v-slot="slotL3">
                             <template v-for="level3 in level2.sub">
@@ -34,11 +34,20 @@
     import NavbarItem from './NavbarItem.vue'
     import NavbarSubItem from './NavbarSubItem.vue'
 
+    defineProps<{
+        open: boolean
+    }>()
+
     const items = shallowRef(NAV_ITEMS_DATA)
 </script>
 
 <style scoped>
     ul {
         list-style: none;
+        max-width: 278px;
+    }
+
+    .sub-list {
+        padding-left: 1.5rem;
     }
 </style>

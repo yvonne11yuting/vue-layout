@@ -1,7 +1,7 @@
 <template>
   <header>
         <div class="header-sub flex-center">
-            <button @click="extendSidebar">
+            <button @click="extendNavbar">
                 <IconBars />
             </button>
             <img alt="APPX logo" class="logo" src="./assets/logo.png" width="164" height="35" />
@@ -15,7 +15,7 @@
 
   <main>
     <nav class="navbar">
-        <NavbarList />
+        <NavbarList :open="navbarFlag"/>
     </nav>
     <div class="breadcrumb">breadcrumb</div>
     <div class="collection-filter">collection-filter</div>
@@ -31,9 +31,12 @@ import HeaderAreaInfo from '@/components/HeaderAreaInfo.vue';
 import HeaderControl from '@/components/HeaderControl.vue';
 import NavbarList from '@/components/NavbarList.vue';
 
-const extendSidebar = () => {
+const navbarFlag = ref(false);
 
+const extendNavbar = () => {
+    navbarFlag.value = !navbarFlag.value
 }
+console.log(navbarFlag.value);
 </script>
 
 <style scoped>
@@ -50,7 +53,7 @@ const extendSidebar = () => {
 
     main {
         display: grid;
-        grid-template-columns: minmax(100px, 278px) 1fr;
+        grid-template-columns: auto 1fr;
         grid-template-rows: 60px 124px minmax(100px, auto);
         grid-template-areas:
             "nav breadcrumb"
