@@ -1,28 +1,31 @@
 <template>
-    <div class="list-header flex-center">
+    <div v-if="isDesktop" class="list-header flex-center">
         <h3>My Collection</h3>
         <Pagination :total="480" :current="1" :each="10" />
     </div>
-    <div v-for="item in data" :key="item.id" class="card" @click="$emit('unCollect', item.id)">
-        <div class="collect"><IconCollect /></div>
-        <div class="title">{{ item.title }}{{ item.id.slice(0,3) }}</div>
-        <div class="news"><span v-if="item.isNews">News</span></div>
-        <div class="toolbar flex-start">
-            <div class="flex-center">
-                <IconThumb />
-                {{ item.likes }} Likes
+    <h3 v-else>My Collection</h3>
+    <template v-for="item in data" :key="item.id">
+        <div class="card" @click="$emit('unCollect', item.id)">
+            <div class="collect"><IconCollect /></div>
+            <div class="title">{{ item.title }}{{ item.id.slice(0,3) }}</div>
+            <div class="news"><span v-if="item.isNews">News</span></div>
+            <div class="toolbar flex-start">
+                <div class="flex-center toolbar-item">
+                    <IconThumb />
+                    {{ item.likes }} Likes
+                </div>
+                <div class="flex-center toolbar-item">
+                    <IconComment />
+                    {{ item.comments }} Comments
+                </div>
+                <div class="flex-center toolbar-item">
+                    <IconShare />
+                    {{ item.shares }} Shares
+                </div>
             </div>
-            <div class="flex-center">
-                <IconComment />
-                {{ item.comments }} Comments
-            </div>
-            <div class="flex-center">
-                <IconShare />
-                {{ item.shares }} Shares
-            </div>
+            <div class="date">{{ new Date(item.date).toDateString().slice(4) }}</div>
         </div>
-        <div class="date">{{ new Date(item.date).toDateString().slice(4) }}</div>
-    </div>
+    </template>
 </template>
 
 <script setup lang="ts">
@@ -43,6 +46,7 @@
 
     defineProps<{
         data: ListData[],
+        isDesktop: boolean,
     }>()
 
     defineEmits(['unCollect'])
@@ -87,7 +91,8 @@
         font-size: .75rem;
     }
 
-    .toolbar > div {
+    .toolbar-item {
+        display: inline-flex;
         gap: .25rem;
         cursor: pointer;
     }
@@ -109,5 +114,41 @@
         background-color: #EDEDED;
         padding: .25rem .5rem;
         border-radius: 38px;
+    }
+
+    .toolbar {
+        flex-wrap: wrap;
+    }
+
+    @media (max-width: 1200px) {
+        h3 {
+            font-size: 16px;
+        }
+        .card {
+            display: grid;
+            align-items: center;
+            grid-template-columns: 30px 1fr;
+            grid-template-areas:
+                "collect news"
+                "title title"
+                "toolbar toolbar"
+                "date date";
+            row-gap: 1rem;
+            padding: 1rem 0;
+            border: none;
+        }
+
+        .card + .card {
+            border-top: 1px solid #E3E3E3;
+        }
+
+        .date, .news {
+            text-align: left;
+        }
+
+        .date {
+            font-weight: 600;
+            color: var(--text-title);
+        }
     }
 </style>

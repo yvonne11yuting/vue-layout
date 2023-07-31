@@ -1,5 +1,5 @@
 <template>
-    <ul>
+    <ul v-show="isDesktop || !isDesktop && open">
         <NavbarItem v-for="item in NAV_ITEMS_DATA"
             :key="item.id"
             :title="item.title"
@@ -34,7 +34,8 @@
     import NavbarSubItem from './NavbarSubItem.vue'
 
     defineProps<{
-        open: boolean
+        open: boolean,
+        isDesktop: boolean
     }>()
 </script>
 

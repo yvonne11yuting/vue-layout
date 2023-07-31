@@ -66,4 +66,10 @@
     .nav-level1-item .arrow-down {
         padding: 1rem 1.5rem 1rem 0;
     }
+
+    @media (max-width: 1200px) {
+        .nav-level1-item > svg {
+            padding-left: 1rem;
+        }
+    }
 </style>

@@ -63,4 +63,20 @@ const search = ref('');
         background-color: var(--main-background);
         border-radius: 6px;
     }
+
+    @media (max-width: 1200px) {
+        .container {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+
+        .form-group, .form-content, button, select {
+            width: 100%;
+        }
+
+        button {
+            font-size: 1.25rem;
+        }
+    }
 </style>
