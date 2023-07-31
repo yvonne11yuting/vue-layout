@@ -15,7 +15,7 @@
 
   <main>
     <nav class="navbar" :class="{ isDesktop: isDesktop, navOpen: navbarFlag }">
-        <NavbarList :open="navbarFlag" :isDesktop="isDesktop"/>
+        <NavbarList :open="navbarFlag" :isDesktop="isDesktop" />
     </nav>
     <div class="breadcrumb">
         <MainBreadcrumb :data="BreadcrumbData"/>
@@ -35,10 +35,10 @@
 <script setup>
 import { onMounted, ref, computed } from 'vue';
 import IconBars from '@/components/icons/IconBars.vue';
-import HeaderSearch from '@/components/HeaderSearch.vue';
-import HeaderAreaInfo from '@/components/HeaderAreaInfo.vue';
-import HeaderControl from '@/components/HeaderControl.vue';
-import NavbarList from '@/components/NavbarList.vue';
+import HeaderSearch from '@/components/Header/HeaderSearch.vue';
+import HeaderAreaInfo from '@/components/Header/HeaderAreaInfo.vue';
+import HeaderControl from '@/components/Header/HeaderControl.vue';
+import NavbarList from '@/components/Navbar/NavbarList.vue';
 import MainBreadcrumb from '@/components/MainBreadcrumb.vue';
 import CollectionFilter from '@/components/CollectionFilter.vue';
 import CollectionList from '@/components/CollectionList.vue';
@@ -87,7 +87,6 @@ onMounted(() => {
             "nav breadcrumb"
             "nav collection-filter"
             "nav collection-list";
-        column-gap: 1rem;
         padding-right: 1rem;
     }
 

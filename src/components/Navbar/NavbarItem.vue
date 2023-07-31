@@ -52,7 +52,7 @@
     .nav-level1-item > svg {
         flex: none;
         width: 1.5rem;
-        padding: 1rem .75rem 1rem 1.5rem;
+        padding: 1rem 1.5rem;
     }
 
     .nav-level1-item.hideNav span {

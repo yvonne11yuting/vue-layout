@@ -4,7 +4,7 @@
         <IconSetting />
         <IconNotify v-if="isDesktop"/>
         <div class="flex-center">
-            <img alt="avatar" class="avatar" src="../assets/avatar.png" width="50" height="50" />
+            <img alt="avatar" class="avatar" src="@/assets//avatar.png" width="50" height="50" />
             <IconArrowDown v-if="isDesktop"/>
         </div>
     </div>
